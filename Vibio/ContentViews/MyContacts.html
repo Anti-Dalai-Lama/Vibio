@@ -1,0 +1,57 @@
+﻿<div layout="row" layout-wrap layout-align="space-around center" layout-lg="column" layout-md="column" layout-sm="column" class="contacts-block">
+    <div flex="45" flex-lg="60" flex-md="70" flex-sm="90" class="card contact-card" ng-repeat="contact in contacts">
+        <div layout="column">
+            <div layout="row">
+                <div flex="auto"></div>
+                <div>
+                    <button class="btn btn--xs btn--red btn--icon" email="{{contact.PrimaryEmail}}" name="{{contact.Name}}" lx-ripple ng-click="delete($event)"><i class="mdi mdi-delete"></i></button>
+                </div>
+            </div>
+            <div layout="row" layout-align="space-around center" layout-md="row" layout-sm="column">
+
+                    <div class="contact-avatar"></div>
+
+                    <div layout="column" style="width:60%">
+                        <div layout="row" layout-sm="row">
+                            <div flex="30">Name: </div>
+                            <div flex="70">{{contact.Name}}</div>
+                        </div>
+                        <div layout="row" layout-sm="row">
+                            <div flex="30">Email: </div>
+                            <div flex="70">{{contact.PrimaryEmail}}</div>
+                        </div>
+                        <div layout="row" layout-sm="row">
+                            <div flex="30">Phone: </div>
+                            <div flex="70">{{contact.Phone}}</div>
+                        </div>
+                        <div layout="row" layout-sm="row">
+                            <div flex="30">Country: </div>
+                            <div flex="70">{{contact.Country}}</div>
+                        </div>
+                        <div layout="row" layout-sm="row">
+                            <div flex="30">City: </div>
+                            <div flex="70">{{contact.City}}</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <lx-dialog class="card dialog dialog--m" style="width:400px !important; top:30% !important; margin-left:-200px" id="delete" auto-close="true"><!--style="width:auto !important; left:auto !important ; margin-left:auto !important; margin-right:auto !important; overflow: auto; top:30% !important; "-->
+        <div class="dialog__header">
+            <div class="toolbar pl++" style="text-align:center !important; padding-bottom:0px !important">
+                <span class="toolbar__label tc-black fs-title">
+                    Do you want to delete
+                </span>
+            </div>
+            <div class="toolbar pl++" style="text-align:center !important; padding-bottom:0px !important; padding-top:0px !important">
+                <span class="toolbar__label tc-black fs-title">
+                    {{nameToDelete}} ?
+                </span>
+            </div>
+        </div>
+        <div class="dialog__actions" style="text-align:center !important; padding-top:0px !important;">
+            <button class="btn btn--m btn--green btn--raised" lx-ripple ng-click="acceptDeleting($event)">Yes</button>
+            <button class="btn btn--m btn--red btn--raised" lx-ripple lx-dialog-close>Cancel</button>
+        </div>
+    </lx-dialog>
+</div>
